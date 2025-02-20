@@ -12,6 +12,7 @@ struct rive_animatedApp: App {
     var body: some Scene {
         WindowGroup {
             LightBulbView().preferredColorScheme(.dark)
+                .background(Color.black)
         }
     }
 }

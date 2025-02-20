@@ -35,6 +35,41 @@ extension Color {
     }
 }
 
+// Add this extension for color interpolation
+extension Array where Element == Gradient.Stop {
+    func interpolatedColor(at location: CGFloat) -> Color {
+        guard !isEmpty else { return .black }
+        guard count > 1 else { return first?.color ?? .black }
+        
+        for (index, stop) in self.enumerated() {
+            if location <= stop.location {
+                if index == 0 { return stop.color }
+                let previousStop = self[index - 1]
+                let fraction = (location - previousStop.location) / (stop.location - previousStop.location)
+                return Color.lerp(from: previousStop.color, to: stop.color, fraction: fraction)
+            }
+        }
+        
+        return last?.color ?? .black
+    }
+}
+
+
+
+extension Color {
+    static func lerp(from start: Color, to end: Color, fraction: CGFloat) -> Color {
+        let startComponents = start.cgColor?.components ?? [0, 0, 0, 1]
+        let endComponents = end.cgColor?.components ?? [0, 0, 0, 1]
+        
+        let red = startComponents[0] + (endComponents[0] - startComponents[0]) * fraction
+        let green = startComponents[1] + (endComponents[1] - startComponents[1]) * fraction
+        let blue = startComponents[2] + (endComponents[2] - startComponents[2]) * fraction
+        let alpha = startComponents[3] + (endComponents[3] - startComponents[3]) * fraction
+        
+        return Color(.sRGB, red: Double(red), green: Double(green), blue: Double(blue), opacity: Double(alpha))
+    }
+}
+
 
 // Layout debuger
 struct DebugLayoutModifier: ViewModifier {
