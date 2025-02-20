@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		1E9CA4B62D63A72000BAEFF4 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 1E9CA4B52D63A72000BAEFF4 /* RiveRuntime */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		1E9CA4962D63A60700BAEFF4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E9CA4B62D63A72000BAEFF4 /* RiveRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = "rive-animated";
 			packageProductDependencies = (
+				1E9CA4B52D63A72000BAEFF4 /* RiveRuntime */,
 			);
 			productName = "rive-animated";
 			productReference = 1E9CA4852D63A60500BAEFF4 /* rive-animated.app */;
@@ -195,6 +201,9 @@
 			);
 			mainGroup = 1E9CA47C2D63A60500BAEFF4;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				1E9CA4B22D63A69F00BAEFF4 /* XCRemoteSwiftPackageReference "rive-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1E9CA4862D63A60500BAEFF4 /* Products */;
 			projectDirPath = "";
@@ -558,6 +567,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1E9CA4B22D63A69F00BAEFF4 /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rive-app/rive-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1E9CA4B52D63A72000BAEFF4 /* RiveRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1E9CA4B22D63A69F00BAEFF4 /* XCRemoteSwiftPackageReference "rive-ios" */;
+			productName = RiveRuntime;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1E9CA47D2D63A60500BAEFF4 /* Project object */;
 }

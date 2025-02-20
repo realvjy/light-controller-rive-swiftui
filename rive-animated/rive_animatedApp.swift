@@ -11,7 +11,7 @@ import SwiftUI
 struct rive_animatedApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LightBulbView().preferredColorScheme(.dark)
         }
     }
 }
