@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E9CA4B62D63A72000BAEFF4 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 1E9CA4B52D63A72000BAEFF4 /* RiveRuntime */; };
+		1ED72E152D692B8A0085B723 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1ED72E142D692B850085B723 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,11 +32,25 @@
 		1E9CA4852D63A60500BAEFF4 /* rive-animated.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rive-animated.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E9CA4952D63A60700BAEFF4 /* rive-animatedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "rive-animatedTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E9CA49F2D63A60700BAEFF4 /* rive-animatedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "rive-animatedUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1ED72E142D692B850085B723 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		1ED72E102D6929290085B723 /* Exceptions for "rive-animated" folder in "rive-animated" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 1E9CA4842D63A60500BAEFF4 /* rive-animated */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		1E9CA4872D63A60500BAEFF4 /* rive-animated */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1ED72E102D6929290085B723 /* Exceptions for "rive-animated" folder in "rive-animated" target */,
+			);
 			path = "rive-animated";
 			sourceTree = "<group>";
 		};
@@ -80,6 +95,7 @@
 		1E9CA47C2D63A60500BAEFF4 = {
 			isa = PBXGroup;
 			children = (
+				1ED72E142D692B850085B723 /* README.md */,
 				1E9CA4872D63A60500BAEFF4 /* rive-animated */,
 				1E9CA4982D63A60700BAEFF4 /* rive-animatedTests */,
 				1E9CA4A22D63A60700BAEFF4 /* rive-animatedUITests */,
@@ -221,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ED72E152D692B8A0085B723 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +425,9 @@
 				DEVELOPMENT_TEAM = 9GRRFW5PQZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "rive-animated/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Rive Light";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -437,6 +457,9 @@
 				DEVELOPMENT_TEAM = 9GRRFW5PQZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "rive-animated/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Rive Light";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

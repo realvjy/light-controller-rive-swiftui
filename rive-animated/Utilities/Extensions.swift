@@ -93,3 +93,15 @@ struct DebugLayoutModifier: ViewModifier {
             )
     }
 }
+
+
+func mapRange(value: Double, inMin: Double, inMax: Double, outMin: Double, outMax: Double) -> Double {
+    return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin
+}
+
+
+struct NoOpacityButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+    }
+}
