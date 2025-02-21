@@ -29,22 +29,23 @@ struct GradientSlider: View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
                 // Gradient Track
-                RoundedRectangle(cornerRadius: 10)
+                RoundedRectangle(cornerRadius: 18)
                     .fill(LinearGradient(gradient: Gradient(stops: gradientStops), startPoint: .leading, endPoint: .trailing))
-                    .frame(height: 20)
+                    .frame(height: 36)
 
                 // Thumb
                 Circle()
                     .fill(thumbColor)
+                    .stroke(Color.white, lineWidth: 1)
                     .frame(width: 24, height: 24)
                     .shadow(radius: 3)
                     .offset(
-                        x: max(0, min( // Add bounds to keep thumb within track
+                        x: max(8, min( // Add bounds to keep thumb within track
                             CGFloat(
                                 (value - range.lowerBound)
                                 / (range.upperBound - range.lowerBound)
                             ) * (geometry.size.width - 24), // Subtract thumb width
-                            geometry.size.width - 24 // Maximum offset
+                            geometry.size.width - 32 // Maximum offset
                         ))
                     )
                     .gesture(
@@ -79,7 +80,7 @@ struct OpacitySlider: View {
             value: $opacity,
             range: 0...0.7,
             gradientStops: [
-                Gradient.Stop(color: Color.gray, location: 0),
+                Gradient.Stop(color: Color.white.opacity(0.4), location: 0),
                 Gradient.Stop(color: Color.white, location: 1)
             ]
         )
@@ -118,6 +119,7 @@ struct LightBulbView: View {
     @State private var numberValue: Float = 0.0
     @State private var opacity: Float = 0.4
     @State private var debugLayout: Bool = true
+    @State private var isLightOn: Bool = true // Add this state variable
 
   
     
@@ -154,6 +156,7 @@ struct LightBulbView: View {
                                     .view()
                                     .frame(width: 900, height: 900)
                                     .clipped()
+                                
                             }
                             .frame(
                                 width: geometry.size.width, height: geometry.size.height
@@ -215,13 +218,14 @@ struct LightBulbView: View {
                                     ZStack {
                                         GradientSlider(
                                             value: $numberValue,
-                                            range: 0...100,
+                                            range: 10...60,
                                             gradientStops: gradientStops
                                             
                                         )
                                         .padding()
                                         .onChange(of: numberValue) { newValue, _ in
                                             riveBulb.setInput("ColorValue", value: newValue)
+                                            
                                         }
                                     }
                                     
@@ -230,10 +234,29 @@ struct LightBulbView: View {
                                             .padding()
                                         
                                     }
-                                    ZStack{
-                                        Circle()
-                                            .fill(currentColor.opacity(Double(opacity))) // Use current color with opacity
-                                            .frame(width: 42)
+                                    ZStack {
+                                        Button(action: {
+                                            isLightOn.toggle() // Toggle the state
+                                            if isLightOn {
+                                                // Turn on: restore previous values
+                                                riveBulb.setInput("ColorValue", value: numberValue)
+                                                riveBulb.setInput("on", value: isLightOn)
+                                            } else {
+                                                // Turn off: reset color slider
+//                                                numberValue = 0
+                                                riveBulb.setInput("ColorValue", value: Float(0))
+                                                riveBulb.setInput("on", value: isLightOn)
+                                            }
+                                        }) {
+                                            Circle()
+                                                .fill(currentColor.opacity(Double(opacity)))
+                                                .frame(width: 42)
+                                                .overlay(
+                                                    Image(systemName: isLightOn ? "power" : "poweroff")
+                                                        .foregroundColor(.white)
+                                                        .font(.system(size: 18, weight: .bold))
+                                                )
+                                        }
                                     }
                                     
                                 }
