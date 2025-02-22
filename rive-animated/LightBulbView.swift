@@ -79,7 +79,8 @@ struct GradientSlider: View {
                         )
                         .blur(radius: 1)
                 ) // Inner shadow
-                // Main track
+
+                    //main track
                 RoundedRectangle(cornerRadius: 24)
                     .fill(
                         LinearGradient(
@@ -175,8 +176,8 @@ struct OpacitySlider: View {
             currentColor: $currentColor, // Pass the binding
             range: 0...0.7,
             gradientStops: [
-                Gradient.Stop(color: Color.white.opacity(0.4), location: 0),
-                Gradient.Stop(color: Color.white, location: 1)
+                Gradient.Stop(color: Color.white.opacity(0.2), location: 0),
+                Gradient.Stop(color: Color.white.opacity(1), location: 1)
             ]
         )
         .onChange(of: opacity) { newValue in
@@ -730,25 +731,27 @@ struct AboutView: View {
                         .aspectRatio(contentMode: .fit)
                     
                 }
-                VStack {
-                    Text(
-                        "I was just playing around with SwiftUI and Rive and made this little app as a test."
-                    )
-                    .font(.body)
-                    .padding()
-                    Text(
-                        "The source code is available on GitHub, and the Rive file can be found in the community."
-                    )
-                    .font(.body)
-                    .padding()
-                    Text(
-                        "I'd love to hear your feedback! Feel free to use it in any of your projects."
-                    )
-                    .font(.body)
-                    .padding()
-                }
-                .frame(width: 300)
-                .padding(12)
+                ZStack {
+                    VStack {
+                        Text(
+                            "I was just playing around with SwiftUI and Rive and made this little app as a test."
+                        )
+                        .font(.body)
+                        .padding()
+                        Text(
+                            "The source code is available on GitHub, and the Rive file can be found in the community."
+                        )
+                        .font(.body)
+                        .padding()
+                        Text(
+                            "I'd love to hear your feedback! Feel free to use it in any of your projects."
+                        )
+                        .font(.body)
+                        .padding(12)
+                    }
+                    
+                }.frame(width: 280)
+                    .padding(12)
                 HStack{
                     ZStack{
                         VStack{
