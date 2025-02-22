@@ -80,7 +80,7 @@ struct GradientSlider: View {
                         .blur(radius: 1)
                 ) // Inner shadow
 
-                    //main track
+                //main track
                 RoundedRectangle(cornerRadius: 24)
                     .fill(
                         LinearGradient(
